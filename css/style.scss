@@ -1475,7 +1475,7 @@ li {
 
 .sorting__content {
     flex-basis: 33.33%;
-    
+
     h5 {
         margin: 0;
         margin-bottom: 25px;
@@ -1484,5 +1484,61 @@ li {
         color: #6f6e6e;
         line-height: 20px;
         text-transform: uppercase;
+    }
+}
+
+.checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+
+    .checkbox-container {
+        flex-basis: 25%;
+        margin-bottom: 10px;
+
+        span {
+            position: relative;
+            padding-left: 23px;
+            font-size: 14px;
+            color: #6f6e6e;
+            text-transform: uppercase;
+            transition: .3s ease all;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 13px;
+                height: 13px;
+                top: 50%;
+                left: 0;
+                box-shadow: 0 0 0 1px #ebebeb;
+                transform: translateY(-50%);
+                transition: .3s ease all;
+            }
+        }
+
+        input {
+            &:hover,
+            &:focus {
+                +span {
+                    color: $black;
+
+                    &:before {
+                        box-shadow: 0 0 0px 1px rgba(241, 109, 127, .50);
+                    }
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:checked {
+                +span {
+                    &:before {
+                        background-color: $pink;
+                    }
+                }
+            }
+        }
     }
 }
